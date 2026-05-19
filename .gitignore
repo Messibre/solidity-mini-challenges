@@ -1,0 +1,14 @@
+# Hardhat artifacts
+artifacts/
+cache/
+
+# Foundry artifacts
+out/
+cache/
+
+# Truffle artifacts
+build/
+
+# Dependency folders
+node_modules/
+lib/

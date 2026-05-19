@@ -1,0 +1,10 @@
+{
+  "mini-practices/index.sol": {
+    "__sources__": {
+      "mini-practices/index.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.19;\r\n\r\ncontract index{\r\n    address public owner;\r\n    struct Task{\r\n        string description;\r\n        bool isCompleted;\r\n        address assignee;\r\n        uint256 deadline;\r\n    }\r\n    constructor(){\r\n          owner=msg.sender;\r\n    }\r\n    modifier onlyOwner{\r\n        require(msg.sender==owner,\"only owner can create tasks!\");\r\n        _;\r\n    }\r\n\r\n    Task[] public tasks;\r\n    mapping (address=>uint256[]) taskIndex;\r\n    event taskCompleted(address, string);\r\n\r\n    function createTask(string memory description, address assignee, uint256 deadline) public onlyOwner{\r\n        Task memory t = Task(description, false,assignee,deadline);\r\n        tasks.push(t);\r\n        taskIndex[assignee].push(tasks.length-1);\r\n\r\n    }\r\n\r\n    function completeTask(uint256 taskId) public{\r\n        require(msg.sender==tasks[taskId].assignee, \"not allowed to update!\");\r\n        tasks[taskId].isCompleted=true;\r\n        emit taskCompleted(msg.sender , tasks[taskId].description );\r\n\r\n    }\r\n    function getMyTasks() public view returns( Task[] memory ){\r\n        uint256[] memory id = taskIndex[msg.sender];\r\n        Task[] memory myTasks = new Task[](id.length);\r\n        for(uint256 i=0;i<id.length;i++){\r\n            myTasks[i]=tasks[id[i]];\r\n        }\r\n        return myTasks;\r\n      }\r\n    function getTaskCount()  public view returns(uint256 total){\r\n        return tasks.length;\r\n    } \r\n    function withdrawExpiredTasks(uint256 taskId) public onlyOwner{\r\n        require(taskId < tasks.length , \"id out of bund\");\r\n        require(block.timestamp > tasks[taskId].deadline && !tasks[taskId].isCompleted ,\"task not expired or already done\" );\r\n       tasks[taskId]= tasks[tasks.length -1];\r\n       taskIndex[tasks[taskId].assignee].push(taskId);\r\n       tasks.pop();\r\n    }\r\n\r\n}",
+        "file": "mini-practices/index.sol"
+      }
+    }
+  }
+}
