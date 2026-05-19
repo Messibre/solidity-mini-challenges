@@ -1,50 +1,56 @@
-# Remix IDE Blank Template
+# Solidity Practice Challenges
 
-Welcome to your new **Remix IDE Blank Workspace**!
+A collection of smart contracts I'm building while learning Solidity, blockchain fundamentals, and DeFi through [Cyfrin Updraft](https://updraft.cyfrin.io/).
 
-This workspace has been generated using the "Blank Template" option in Remix IDE. It starts with only minimal configuration files, giving you full control to build your project from scratch.
+##  What's inside
+
+- `index.sol` – Decentralized task manager (owner creates tasks, assignees complete them, expired tasks can be withdrawn)
+- More challenges coming as I progress
+
+## 🛠️ How to run
+
+**Option 1: Remix (recommended for quick testing)**
+- Go to [remix.ethereum.org](https://remix.ethereum.org)
+- Create a new file, paste the contract
+- Compile with Solidity 0.8.19+
+- Deploy to a local VM or testnet
+
+**Option 2: Local development**
+```bash
+git clone https://github.com/your-username/solidity-practice.git
+cd solidity-practice
+npm install -g hardhat
+npx hardhat compile
+npx hardhat test
+
+
+## Challenge progress
+
+- Student Registry (variables, structs, arrays)
+- Task Manager with mapping & swap-and-pop
+- Decentralized voting system (coming soon)
+- Simple ERC20 token
+
+## 📚 Concepts practiced
+
+- Solidity syntax & data types
+- Structs & arrays
+- Mappings & dynamic arrays
+- Function modifiers (`onlyOwner`)
+- Events
+- Swap-and-pop deletion pattern
+- Handling per-user indexes
+
+## Notes
+
+These are learning contracts – not audited for production use. The TaskManager demonstrates the complexity of keeping index mappings in sync when removing items from an array.
+
+## 🔗 Resources
+
+- [Cyfrin Updraft](https://updraft.cyfrin.io)
+- [Solidity by Example](https://solidity-by-example.org)
+- [Remix IDE](https://remix.ethereum.org)
 
 ---
 
-## What's Included?
-
-- **`remix.config.json`**: Default Remix IDE workspace configuration.
-- **`.prettierrc.json`**: Basic Prettier formatting rules for code consistency.
-
-No contract files, folders, or sample code are included.
-
----
-
-## Getting Started
-
-1. **Create Files & Folders**
-
-   - Add new Solidity files, scripts, or folders as needed for your project.
-   - You can organize your workspace structure in any way you like.
-
-2. **Setup Project Settings** (Optional)
-
-   - Modify `remix.config.json` or add additional configuration files as your project grows.
-
-3. **Write & Compile Smart Contracts**
-
-   - Use the **Solidity Compiler** and **Deploy & Run Transactions** plugins (available in Remix IDE's left sidebar) to develop and test your contracts.
-
-4. **(Optional) Initialize Git**
-
-   - If you checked "Initialize as a Git repository" during workspace creation, you can start committing your code immediately.
-
----
-
-## Useful Resources
-
-- [Remix IDE Documentation](https://remix-ide.readthedocs.io/)
-- [Solidity Language Documentation](https://docs.soliditylang.org/)
-- [Remix IDE Community Forum](https://forum.remix.ethereum.org/)
-
----
-
-Happy coding! 🚀 
-
-_Remix IDE Team_
-
+*"Code, break, fix, repeat."*
