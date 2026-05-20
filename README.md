@@ -27,11 +27,11 @@ Option 1: Remix (recommended for quick testing)
 
 Option 2: Local development
 
-git clone https://github.com/Messibre/solidity-mini-challenges.git
-cd solidity-mini-challenges
-npm install -g hardhat
-npx hardhat compile
-npx hardhat test
+- git clone https://github.com/Messibre/solidity-mini-challenges.git
+- cd solidity-mini-challenges
+- npm install -g hardhat
+- npx hardhat compile
+- npx hardhat test
 
 ##  Notes
 
