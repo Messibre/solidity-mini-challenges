@@ -13,6 +13,8 @@ contract CooperativeTreasury is FarmerRegistry,CoffeeDelivery{
     event payoutDistributed();
     event paidFarmer(address farmer, uint256 amount);
 
+    constructor(address _contractAddress) FarmerRegistry() CoffeeDelivery(_contractAddress) {}
+
 
     function distributeShares(uint256 amountToBeDistributed) internal {
         uint256 totalUnpaid;

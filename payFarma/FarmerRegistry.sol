@@ -13,8 +13,8 @@ contract FarmerRegistry{
         bool active;
     }
     address public owner;
-    mapping(address=>Farmer) farmer;
-    mapping(address=>uint256) farmerId;
+    mapping(address=>Farmer) public farmer;
+    mapping(address=>uint256) public farmerId;
     address[] public registeredFarmers;
 
     event FarmerRegistered(string name, address wallet);
